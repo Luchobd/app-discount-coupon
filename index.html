@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Ofertas y Cupon de Descuento</title>
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>Ofertas y Cupon de Descuento</h1>
+      </header>
+      <!-- Descuento en porcentaje y Cupon de descuento-->
+
+      <section class="container__discount">
+        <article class="container__discount--card">
+          <h3 class="discount__title">
+            Calcular el Descuento (Oferta) en porcentaje
+          </h3>
+          <form action="" class="container__discount--form">
+            <label for="inputPrecio" class="discount__label"
+              >Escriba el precio de su producto:</label
+            >
+            <input type="number" class="discount__input" id="inputPrice" />
+            <label for="inputDescuento" class="discount__label"
+              >Escriba el descuento del producto:
+            </label>
+            <input type="number" class="discount__input" id="inputDiscount" />
+            <button
+              type="button"
+              class="discount__buttom"
+              onclick="onClickButtonPriceDiscountCoupon()"
+            >
+              Calcular Descuento
+            </button>
+
+            <label for="InputCoupon" class="discount__label"
+              >Escribe aquí si tienes un cupón:
+            </label>
+            <input
+              class="discount__input discount__cupon"
+              id="inputCoupon"
+              type="text"
+            />
+            <p class="coupon__discount">
+              Usa cualquiera de los 3 cupones de descuento:
+            </p>
+            <p class="coupon__discount">
+              (user_coupon_discount, LuchoDev, app_descueno_cupon)
+            </p>
+            <p class="discount__view" id="resultPrice"></p>
+          </form>
+        </article>
+      </section>
+    </main>
+    <script src="js/app.js"></script>
+  </body>
+</html>

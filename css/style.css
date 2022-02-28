@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  font-family: "Slabo 27px", serif;
+  background-color: papayawhip;
+}
+
+h1 {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #008000;
+}
+
+main {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+}
+
+.container__discount--card {
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background-color: #00ffff;
+  opacity: 70%;
+}
+
+.discount__title {
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.container__discount--form {
+  display: flex;
+  flex-direction: column;
+}
+
+.discount__label {
+  text-align: center;
+}
+
+.discount__input {
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #000000;
+  background-color: transparent;
+  width: 75px;
+  margin: 10px auto;
+  text-align: center;
+}
+
+.discount__cupon {
+  width: 250px;
+}
+
+.discount__buttom {
+  padding: 10px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 15px;
+  width: 150px;
+  margin: 10px auto;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #00ffaa;
+  border: 1px solid #808080;
+}
+
+.discount__buttom:hover {
+  background-color: #7fffd4;
+  color: #ffefd5;
+  border: transparent;
+}
+
+.coupon__discount {
+  color: #dc143c;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.discount__view {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #ff1493;
+  background-color: gold;
+  border-radius: 10px;
+}
