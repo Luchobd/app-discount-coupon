@@ -28,6 +28,8 @@
               >Escriba el descuento del producto:
             </label>
             <input type="number" class="discount__input" id="inputDiscount" />
+            <div class="w-33">
+              <div class="center">
             <button
               type="button"
               class="discount__buttom"
@@ -35,7 +37,15 @@
             >
               Calcular Descuento
             </button>
-
+            <button
+              type="button"
+              class="discount__buttom"
+              onclick="onClickButtonResultSaving()"
+            >
+              Calcular Ahorro
+            </button>
+          </div>
+          </div>
             <label for="InputCoupon" class="discount__label"
               >Escribe aquí si tienes un cupón:
             </label>
@@ -48,9 +58,11 @@
               Usa cualquiera de los 3 cupones de descuento:
             </p>
             <p class="coupon__discount">
-              (user_coupon_discount, LuchoDev, app_descueno_cupon)
+              (user_coupon_discount, LuchoDev, app_discount_coupon)
             </p>
             <p class="discount__view" id="resultPrice"></p>
+          </p>
+          <p class="discount__view" id="resultSaving"></p>
           </form>
         </article>
       </section>

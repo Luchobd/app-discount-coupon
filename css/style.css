@@ -61,6 +61,14 @@ main {
   width: 250px;
 }
 
+div.w-33 {
+  width: 100%;
+}
+
+div.center {
+  text-align: center;
+}
+
 .discount__buttom {
   padding: 10px 0;
   display: inline-block;
@@ -72,6 +80,10 @@ main {
   font-weight: bold;
   background-color: #00ffaa;
   border: 1px solid #808080;
+}
+
+.discount__buttom:nth-child(1) {
+  margin-right: 15px;
 }
 
 .discount__buttom:hover {

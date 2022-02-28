@@ -1,17 +1,17 @@
 function couponDiscount() {
-  const coupons = ["user_coupon_discount", "LuchoDev", "app_descueno_cupon"];
+  const coupons = ["user_coupon_discount", "LuchoDev", "app_discount_coupon"];
 
   const inputCoupon = document.getElementById("inputCoupon");
   const couponValue = inputCoupon.value;
 
-  let descuentoCupon; // modificar en vista
+  let descuentoCupon;
 
   switch (couponValue) {
-    case coupons[0]: // "JuanDC_es_Batman"
-      descuentoCupon = 15; // 15%
+    case coupons[0]:
+      descuentoCupon = 15;
       break;
-    case coupons[1]: // "pero_no_le_digas_a_nadie"
-      descuentoCupon = 30; // 30%
+    case coupons[1]:
+      descuentoCupon = 30;
       break;
     case coupons[2]: // "es_un_secreto"
       descuentoCupon = 25; // 25%
@@ -27,8 +27,37 @@ function sumPorcentage(discount = 0, coupon = 0) {
   return porcentageDiscountCoupon;
 }
 
+function priceSaving(discount = 0, coupon = 0) {
+  const sumaSaving = discount + coupon;
+  const porcentageSaving = sumaSaving / 100;
+
+  return porcentageSaving;
+}
+
+// function resultSavingTotal() {
+//   if (inputDiscount.value.length === 0 && inputCoupon.value.length === 0) {
+//     const resultSavingTotal = "No hay Descuento.";
+//     const resultViewTotal = (resultSaving.textContent =
+//       "Esta ahorrando $" + resultSavingTotal);
+//     return resultViewTotal;
+//   } else if (inputDiscount.value.length === 0) {
+//     const resultSavingCouponValue = priceValue * priceSaving(couponDiscount());
+//     return (resultSaving.textContent =
+//       "Con su CUPON de Descuento, Esta ahorrando $" + resultSavingCouponValue);
+//   } else if (inputCoupon.value.length === 0) {
+//     const resultSavingDiscountValue = priceValue * priceSaving(discountValue);
+//     return (resultSaving.textContent =
+//       "Con el DESCUENTO del  Esta ahorrando $" + resultSavingDiscountValue);
+//   } else {
+//     const priceSavingTotal =
+//       priceValue * priceSaving(discountValue, couponDiscount());
+//     return (resultSaving.textContent = "Esta ahorrando $" + priceSavingTotal);
+//   }
+// }
+
 function onClickButtonPriceDiscountCoupon() {
   const resultPrice = document.getElementById("resultPrice");
+  const resultSaving = document.getElementById("resultSaving");
 
   const inputPrice = document.getElementById("inputPrice");
   const priceValue = inputPrice.value;
@@ -41,20 +70,61 @@ function onClickButtonPriceDiscountCoupon() {
     return (resultPrice.textContent =
       "Total Sin Descuentos: " + "$" + resultPriceTotal);
   } else if (inputDiscount.value.length === 0) {
-    const resultPriceCouponValue = priceValue * sumPorcentage(couponDiscount());
+    const resultPriceCouponValue = (
+      priceValue * sumPorcentage(couponDiscount())
+    ).toFixed(2);
     return (resultPrice.textContent =
       "Total + Cupon: " + "$" + resultPriceCouponValue);
   } else if (inputCoupon.value.length === 0) {
-    const resultPriceDiscountValue = priceValue * sumPorcentage(discountValue);
+    const resultPriceDiscountValue = (
+      priceValue * sumPorcentage(discountValue)
+    ).toFixed(2);
     return (resultPrice.textContent =
       "Total + Descuento: " + "$" + resultPriceDiscountValue);
+  } else {
+    const priceDiscount = (
+      priceValue * sumPorcentage(discountValue, couponDiscount())
+    ).toFixed(2);
+
+    return (resultPrice.textContent =
+      "Total + Descuento + Cupon: " + "$" + priceDiscount);
   }
 
-  const priceDiscount =
-    priceValue * sumPorcentage(discountValue, couponDiscount());
+  // const priceSavingTotal =
+  //   priceValue * priceSaving(discountValue, couponDiscount());
 
-  resultPrice.textContent = "Total + Descuento + Cupon: " + "$" + priceDiscount;
+  // resultSaving.textContent = "Esta ahorrando $" + priceSavingTotal;
 }
 
-/* 1.- Calcular cuanto me estoy ahorrando. y plastamar */
-/* 2.- Hacer que los resultados tengas maximo 2 digitos y redondear. */
+function onClickButtonResultSaving() {
+  const resultPrice = document.getElementById("resultPrice");
+  const resultSaving = document.getElementById("resultSaving");
+
+  const inputPrice = document.getElementById("inputPrice");
+  const priceValue = inputPrice.value;
+
+  const inputDiscount = document.getElementById("inputDiscount");
+  const discountValue = parseFloat(inputDiscount.value);
+
+  if (inputDiscount.value.length === 0 && inputCoupon.value.length === 0) {
+    const resultSavingTotal = "No hay Descuento.";
+    return (resultSaving.textContent = "Esta ahorrando $" + resultSavingTotal);
+  } else if (inputDiscount.value.length === 0) {
+    const resultSavingCouponValue = (
+      priceValue * priceSaving(couponDiscount())
+    ).toFixed(2);
+    return (resultSaving.textContent =
+      "Con su CUPON de Descuento, Esta ahorrando $" + resultSavingCouponValue);
+  } else if (inputCoupon.value.length === 0) {
+    const resultSavingDiscountValue = (
+      priceValue * priceSaving(discountValue)
+    ).toFixed(2);
+    return (resultSaving.textContent =
+      "Con el DESCUENTO del  Esta ahorrando $" + resultSavingDiscountValue);
+  } else {
+    const priceSavingTotal = (
+      priceValue * priceSaving(discountValue, couponDiscount())
+    ).toFixed(2);
+    return (resultSaving.textContent = "Esta ahorrando $" + priceSavingTotal);
+  }
+}
