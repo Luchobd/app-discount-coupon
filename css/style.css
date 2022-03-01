@@ -61,11 +61,11 @@ main {
   width: 250px;
 }
 
-div.w-33 {
+.buttom__box {
   width: 100%;
 }
 
-div.center {
+.buttom__box-center {
   text-align: center;
 }
 
